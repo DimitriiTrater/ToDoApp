@@ -1,13 +1,13 @@
-from django.utils import timezone #мы будем получать дату создания todo
+from django.utils import timezone 
 from django.db import models
  
-class Category(models.Model): # Таблица категория которая наследует models.Model
-	name = models.CharField(max_length=100) #varchar.Нам потребуется только имя категории
+class Category(models.Model):
+	name = models.CharField(max_length=100)
 	class Meta:
-		verbose_name = ("Category") # человекочитаемое имя объекта
-		verbose_name_plural = ("Categories")  #человекочитаемое множественное имя для Категорий
+		verbose_name = ("Category")
+		verbose_name_plural = ("Categories")
 	def __str__(self):
-		return self.name  # __str__ применяется для отображения объекта в интерфейсе
+		return self.name
 
 class TodoList(models.Model):
 	title = models.CharField(max_length=250)

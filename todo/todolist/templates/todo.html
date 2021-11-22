@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="all">
-<div class="columns has-background-black-ter is-centered has-text-white-bis" style="min-height:101vh;">
-	<!-- на самом деле можно было обойтись и hero, но я обратился к inline-css -->
+	<div django-app="TaskManager">
+  <nav class ="navbar is-link" role="navigation" aria-label="main navigation">
+      <div class="navbar-menu ">
+          <div class="navbar-start">
+          <a class="navbar-item" href="../todo_dark"><span class="icon">
+  <i class="fa fa-lightbulb-o"></i>
+</span></a>
+          <a class="navbar-item" href="../todo"> Список дел </a>
+          <a class="navbar-item" href="../category">Категории</a>
+          </div>
+         </div>
+  </nav>
+<div class="columns has-background-white-ter is-centered has-text-grey-bis" style="min-height:101vh;">
+	<!-- inline-css -->
 	<div class="column is-half">
     	<h1 class="is-size-3 has-text-centered"> Список дел </h1>
     	<form action="" method="post">
         	{% csrf_token %}
         	<!-- csrf для базовой безопасности -->
             <div class="field has-text-centered">
-            	<label for="description" class="label has-text-white-bis">Введите дело</label>
+            	<label for="description" class="label has-text-grey-bis">Введите дело</label>
             	<div class="control">
              	   <input type="text" id="description" class="input" placeholder="Чем собираетесь заняться?"
                     	name="description" required>
@@ -38,7 +50,7 @@
         	</div>
         	<div class="column">
             	<div class="field">
-                	<button class="button is-primary" name="Add" type="submit">
+                	<button class="button is-dark-light" name="Add" type="submit">
                     	<span class="icon is-small">
                         	<i class="fa fa-plus"></i>
                     	</span>

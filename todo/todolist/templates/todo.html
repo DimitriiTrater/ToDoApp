@@ -7,7 +7,7 @@
     	<h1 class="is-size-3 has-text-centered"> Список дел </h1>
     	<form action="" method="post">
         	{% csrf_token %}
-        	<!-- csrf для базовой безопасности нашего приложения -->
+        	<!-- csrf для базовой безопасности -->
             <div class="field has-text-centered">
             	<label for="description" class="label has-text-white-bis">Введите дело</label>
             	<div class="control">
@@ -21,7 +21,7 @@
                 	<div class="control">
                     	<div class="select">
                         	<select id="category" class="select" name="category_select" required>
-                            	<!--поставишь такой required, и не надо пустые поляв бд валидизировать. Не повторять в продакшене-->
+                            	<!--required. Не повторять в продакшене-->
                             	<option class="disabled" value="">Выберите категорию дела</option>
                     	        {% for category in categories %}
  	                           <option class="" value="{{ category.name }}" name="{{ category.name }}">
@@ -56,7 +56,6 @@
         	</div>
         	<div class="list is-hoverable">
             	{% for todo in todos %}
-            	<!-- шаблонный язык django- for loop -->
             	<div class="list-item">
                 	<label class="checkbox">
                     	<input type="checkbox" class=" checkbox" name="checkedbox" value="{{ todo.id }}">
